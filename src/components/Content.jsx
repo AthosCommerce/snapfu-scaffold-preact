@@ -11,7 +11,7 @@ import {
 	ControllerProvider,
 } from '@athoscommerce/snap-preact/components';
 
-import { NoResults } from './Results';
+import { NoResults } from './NoResults';
 import { SortBy } from './SortBy';
 
 export const Content = observer((props) => {
@@ -40,7 +40,7 @@ export const Content = observer((props) => {
 
 							<SortBy />
 
-							<Results results={store.results}></Results>
+							<Results controller={controller} results={store.results}></Results>
 
 							<Pagination pagination={store.pagination} />
 						</div>

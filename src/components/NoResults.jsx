@@ -2,27 +2,6 @@ import { h, Fragment } from 'preact';
 import { observer } from 'mobx-react-lite';
 import { Result, InlineBanner, withController, useMediaQuery } from '@athoscommerce/snap-preact/components';
 
-export const Results = withController(
-	observer((props) => {
-		const controller = props.controller;
-		const { results } = controller.store;
-
-		const isMobile = useMediaQuery('(max-width: 767px)');
-
-		return (
-			<div className="ss__results" style={{ display: 'grid', gap: '40px', gridTemplateColumns: `repeat(${isMobile ? 2 : 4}, 1fr)` }}>
-				{results.map((result) => (
-					<>
-						{{
-							banner: <InlineBanner banner={result} />,
-						}[result.type] || <Result result={result} />}
-					</>
-				))}
-			</div>
-		);
-	})
-);
-
 export const NoResults = withController(
 	observer((props) => {
 		const controller = props.controller;
