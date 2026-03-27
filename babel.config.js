@@ -29,7 +29,6 @@ module.exports = (api) => {
 					pragmaFrag: 'Fragment',
 				},
 			],
-			['@babel/plugin-transform-arrow-functions'],
 		],
 	};
 };

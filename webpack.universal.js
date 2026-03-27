@@ -20,10 +20,11 @@ module.exports = merge(common, {
 		rules: [
 			{
 				test: /\.(js|jsx|mjs)$/,
-				include: [/node_modules\/@searchspring/, /node_modules\/swiper/, path.resolve(__dirname, 'src')],
+				exclude: (modulePath) => /node_modules/.test(modulePath) && !/node_modules\/(@athoscommerce|swiper|color\/|color-convert)/.test(modulePath),
 				use: {
 					loader: 'babel-loader',
 					options: {
+						sourceType: 'unambiguous',
 						presets: [
 							[
 								'@babel/preset-env',

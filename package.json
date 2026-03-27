@@ -18,7 +18,7 @@
 		"lighthouse": "lhci --config ./tests/lighthouse/lighthouserc.js autorun",
 		"prepare": "husky install"
 	},
-	"searchspring": {
+	"athos": {
 		"siteId": {
 			"{{snapfu.siteId}}": {
 				"name": "{{snapfu.name}}"
@@ -54,7 +54,6 @@
 		"css-loader": "^6.7.3",
 		"cypress": "^13.7.1",
 		"eslint": "^8.37.0",
-		"eslint-plugin-react": "^7.32.2",
 		"file-loader": "^6.2.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.0",
