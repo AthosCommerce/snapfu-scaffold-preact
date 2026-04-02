@@ -42,7 +42,7 @@ describe('Autocomplete', () => {
 
 			cy.waitForBundle().then(() => {
 				cy.window().then((window) => {
-					expect(window.searchspring).to.exist;
+					expect(window.athos).to.exist;
 				});
 			});
 
@@ -221,7 +221,7 @@ describe('Tracking', () => {
 
 		cy.waitForBundle().then(() => {
 			cy.window().then((window) => {
-				expect(window.searchspring).to.exist;
+				expect(window.athos).to.exist;
 			});
 		});
 

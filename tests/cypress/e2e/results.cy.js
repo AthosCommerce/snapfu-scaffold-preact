@@ -13,7 +13,7 @@ const config = {
 	// pages to test (recommended: 1 search page, 1 category page)
 	pages: [
 		{ url: 'https://localhost:3333/index.html?q=*', id: 'Search' },
-		// { url: 'https://try.searchspring.com/dresses', id: 'Category' },
+		// { url: 'https://www.storefront.com/categorypage', id: 'Category' },
 	],
 	disableGA: '', // disable google analytic events (example: 'UA-123456-1')
 	selectors: {
@@ -57,7 +57,7 @@ config?.pages?.forEach((page, _i) => {
 
 				cy.waitForBundle().then(() => {
 					cy.window().then((window) => {
-						expect(window.searchspring).to.exist;
+						expect(window.athos).to.exist;
 					});
 				});
 
@@ -769,7 +769,7 @@ describe('Tracking', () => {
 
 		cy.waitForBundle().then(() => {
 			cy.window().then((window) => {
-				expect(window.searchspring).to.exist;
+				expect(window.athos).to.exist;
 			});
 		});
 

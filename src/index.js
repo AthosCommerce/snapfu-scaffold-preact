@@ -1,4 +1,4 @@
-/* searchspring imports */
+/* athos imports */
 import { Snap } from '@athoscommerce/snap-preact';
 import { getContext } from '@athoscommerce/snap-toolbox';
 
@@ -56,21 +56,21 @@ const config = {
 				},
 				targeters: [
 					{
-						selector: '#searchspring-sidebar',
+						selector: '#athos-sidebar',
 						component: async () => {
 							return (await import('./components/Sidebar')).Sidebar;
 						},
 						hideTarget: true,
 					},
 					{
-						selector: '#searchspring-content',
+						selector: '#athos-content',
 						component: async () => {
 							return (await import('./components/Content')).Content;
 						},
 						hideTarget: true,
 					},
 					{
-						selector: '#searchspring-header',
+						selector: '#athos-header',
 						component: async () => {
 							return (await import('./components/SearchHeader')).SearchHeader;
 						},
