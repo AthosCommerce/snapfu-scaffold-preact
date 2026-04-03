@@ -8,7 +8,7 @@ module.exports = (api) => {
 				{
 					modules: false,
 					useBuiltIns: 'usage',
-					corejs: '3.19',
+					corejs: '3.30',
 				},
 			],
 			['@babel/preset-react'],

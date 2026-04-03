@@ -26,7 +26,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.BannerPlugin({
-			banner: 'window.athos = window.athos || {};\nwindow.athos.managed = true;',
+			banner: 'window.athos = window.athos || {};\nwindow.athos.managed = {{ snapfu.managed }};',
 			raw: true,
 			entryOnly: true,
 		}),
