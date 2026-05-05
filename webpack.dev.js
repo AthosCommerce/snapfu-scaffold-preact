@@ -7,7 +7,7 @@ const path = require('path');
 
 const universal = merge(common, {
 	mode: 'development',
-	entry: './src/universal.ts',
+	entry: './src/universal.js',
 	output: {
 		filename: 'universal.bundle.js',
 		chunkFilename: 'universal.bundle.chunk.[fullhash:8].[id].js',
@@ -39,7 +39,7 @@ const universal = merge(common, {
 
 const modern = merge(common, {
 	mode: 'development',
-	entry: './src/index.tsx',
+	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
 		chunkFilename: 'bundle.chunk.[fullhash:8].[id].js',

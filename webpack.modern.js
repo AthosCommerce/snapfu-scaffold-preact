@@ -5,11 +5,17 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
 const childProcess = require('child_process');
-const branchName = childProcess.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+
+let branchName;
+try {
+	branchName = childProcess.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+} catch (e) {
+	branchName = 'production';
+}
 
 module.exports = merge(common, {
 	mode: 'production',
-	entry: './src/index.tsx',
+	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
 		chunkFilename: 'bundle.chunk.[fullhash:8].[id].js',
