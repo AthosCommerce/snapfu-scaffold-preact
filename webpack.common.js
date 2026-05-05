@@ -4,6 +4,17 @@
 const webpack = require('webpack');
 const path = require('path');
 
+// determine branch name for branch override usage
+let branchName;
+try {
+	branchName = childProcess.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+} catch (e) {
+	branchName = 'production';
+}
+
+// class name for for branch override usage
+const styleClass = 'ss-snap-bundle-styles';
+
 module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -17,6 +28,9 @@ module.exports = {
 			banner: 'window.athos = window.athos || {};\nwindow.athos.managed = {{ snapfu.managed }};',
 			raw: true,
 			entryOnly: true,
+		}),
+		new webpack.DefinePlugin({
+			BRANCHNAME: `"${branchName}"`,
 		}),
 	],
 	module: {
