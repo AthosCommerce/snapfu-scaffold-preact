@@ -2,6 +2,7 @@
 // ***********************************************
 
 const webpack = require('webpack');
+const childProcess = require('child_process');
 const path = require('path');
 
 // determine branch name for branch override usage
