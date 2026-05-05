@@ -2,19 +2,7 @@
 // ***********************************************
 
 const webpack = require('webpack');
-const childProcess = require('child_process');
 const path = require('path');
-
-// determine branch name for branch override usage
-let branchName;
-try {
-	branchName = childProcess.execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
-} catch (e) {
-	branchName = 'production';
-}
-
-// class name for for branch override usage
-const styleClass = 'ss-snap-bundle-styles';
 
 module.exports = {
 	output: {
@@ -30,55 +18,19 @@ module.exports = {
 			raw: true,
 			entryOnly: true,
 		}),
-		new webpack.DefinePlugin({
-			BRANCHNAME: `"${branchName}"`,
-		}),
 	],
 	module: {
 		strictExportPresence: true,
 		rules: [
 			{
-				test: /\.(css|scss)$/,
-				exclude: /\.module\.(css|scss)$/,
-				use: [
-					{
-						loader: 'style-loader',
-						options: {
-							attributes: { class: styleClass },
-						},
-					},
-					'css-loader',
-					'sass-loader',
-				],
-			},
-			{
-				test: /\.module\.(css|scss)$/,
-				use: [
-					{
-						loader: 'style-loader',
-						options: {
-							attributes: { class: styleClass },
-						},
-					},
-					{
-						loader: 'css-loader',
-						options: {
-							modules: {
-								localIdentName: '[local]--[hash:base64:5]',
-							},
-						},
-					},
-					'sass-loader',
-				],
-			},
-			{
-				test: /\.(png|svg)$/,
-				use: ['file-loader'],
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
 			},
 		],
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		alias: {
 			react: 'preact/compat',
 			'react-dom/test-utils': 'preact/test-utils',

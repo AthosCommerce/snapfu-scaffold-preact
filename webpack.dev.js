@@ -7,7 +7,7 @@ const path = require('path');
 
 const universal = merge(common, {
 	mode: 'development',
-	entry: './src/universal.js',
+	entry: './src/universal.ts',
 	output: {
 		filename: 'universal.bundle.js',
 		chunkFilename: 'universal.bundle.chunk.[fullhash:8].[id].js',
@@ -17,7 +17,7 @@ const universal = merge(common, {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				include: [/node_modules\/@athoscommerce/, path.resolve(__dirname, 'src')],
+				include: [/node_modules\/@athos/, path.resolve(__dirname, 'src')],
 				use: {
 					loader: 'babel-loader',
 					options: {
@@ -39,7 +39,7 @@ const universal = merge(common, {
 
 const modern = merge(common, {
 	mode: 'development',
-	entry: './src/index.js',
+	entry: './src/index.tsx',
 	output: {
 		filename: 'bundle.js',
 		chunkFilename: 'bundle.chunk.[fullhash:8].[id].js',
