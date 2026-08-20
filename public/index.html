@@ -8,6 +8,8 @@
 			// default to a wildcard "*" query so the dev harness shows results out of the box,
 			// but only when the page was loaded without one already
 			(function () {
+				if (typeof URLSearchParams === 'undefined' || !window.history || !window.history.replaceState) return;
+
 				var params = new URLSearchParams(window.location.search);
 				if (!params.has('q')) {
 					params.set('q', '*');
