@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	color: #222;
+}
+
+#athos-header,
+.athos-layout {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* search form */
+form {
+	display: flex;
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 0 20px;
+
+	#search-input {
+		flex: 1;
+		padding: 10px 14px;
+		font-size: 1em;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+}
+
+/* content + sidebar layout */
+.athos-layout {
+	display: flex;
+	align-items: flex-start;
+	gap: 32px;
+	padding-bottom: 40px;
+
+	#athos-sidebar {
+		flex: 0 0 240px;
+		width: 240px;
+	}
+
+	#athos-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	@media (max-width: 767px) {
+		flex-direction: column;
+
+		#athos-sidebar {
+			display: none;
+		}
+	}
+}

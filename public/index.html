@@ -4,6 +4,17 @@
 		<meta charset="UTF-8" />
 		<title>snApp</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			// default to a wildcard "*" query so the dev harness shows results out of the box,
+			// but only when the page was loaded without one already
+			(function () {
+				var params = new URLSearchParams(window.location.search);
+				if (!params.has('q')) {
+					params.set('q', '*');
+					window.history.replaceState(null, '', window.location.pathname + '?' + params.toString() + window.location.hash);
+				}
+			})();
+		</script>
 		<script src="bundle.js" id="athos-context"></script>
 	</head>
 	<body>
@@ -11,7 +22,9 @@
 			<input id="search-input" type="text" name="q"/>
 		</form>
 		<div id="athos-header"></div>
-		<div id="athos-content"></div>
-		<div id="athos-sidebar"></div>
+		<div class="athos-layout">
+			<div id="athos-sidebar"></div>
+			<div id="athos-content"></div>
+		</div>
 	</body>
 </html>
