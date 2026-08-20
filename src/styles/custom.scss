@@ -1,17 +1,14 @@
-* {
-	box-sizing: border-box;
-}
-
-body {
-	margin: 0;
-	color: #222;
-}
-
 #athos-header,
 .athos-layout {
+	box-sizing: border-box;
+	color: #222;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 20px;
+
+	* {
+		box-sizing: border-box;
+	}
 }
 
 /* search form */
