@@ -60,6 +60,9 @@ Default components rendered via `targeters` in [src/index.js](src/index.js):
 
 `webpack.common.js`, `webpack.dev.js`, and other webpack configs are managed by the Snap tooling and get replaced on updates — avoid editing them directly.
 
+## How To Integrate
+The recommended integration approach mirrors your site's existing DOM within the targeted components, extending it with Snap-specific behavior such as click handlers and controller store bindings. By reusing your existing markup structure and class names, the components automatically inherit your site's styles and remain compatible with any scripts that depend on those elements.
+
 ## Deployment
 
 Pushes/PRs run the [Snap Action](.github/workflows/deploy.yml) workflow, which builds and publishes the bundle to S3/CloudFront using the site's configured secrets.
